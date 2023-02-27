@@ -8,3 +8,8 @@ export const Flex = styled.div`
         flex-direction: row;
     }
 `
+export const ColumnFlex = styled.div`
+    display:flex;
+    flex-direction: column;
+    
+`

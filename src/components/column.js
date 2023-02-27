@@ -1,16 +1,16 @@
-import { ContainerForColumn } from "./Containers/container";
+import { Container } from "./Containers/container";
 
 export const Column=({
     children,
-    className,
+    className, 
     centerAlign,
     centerJustify
 }) => (
-    <ContainerForColumn
+    <Container
         className={className}
         centerAlign={centerAlign}
         centerJustify={centerJustify}
     >
         {children}
-    </ContainerForColumn>
+    </Container>
 )

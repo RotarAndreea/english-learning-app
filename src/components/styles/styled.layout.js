@@ -1,15 +1,13 @@
 import styled from "styled-components";
-import { Layout } from "../../layouts/FlexBoxLayout";
+import { ContainerLayout } from "../../layouts/ContainerLayout";
 
-export const CustomizedLayout=styled(Layout)`
+export const PrincipalLayout=styled(ContainerLayout)`
     background:#d0ca95;
     width:70%;
     margin:auto;
     border-radius:20px;
-    height:70%;
     padding:1rem;
     transition: all 0.50s linear;
-
 
     @media(max-width:768px){
         width:100%;
