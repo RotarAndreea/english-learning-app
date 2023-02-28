@@ -8,7 +8,8 @@ export const PrincipalLayout=styled(ContainerLayout)`
     border-radius:20px;
     padding:1rem;
     transition: all 0.50s linear;
-
+    margin-top: -30px;
+ 
     @media(max-width:768px){
         width:100%;
 `

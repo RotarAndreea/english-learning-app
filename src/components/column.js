@@ -4,12 +4,14 @@ export const Column=({
     children,
     className, 
     centerAlign,
-    centerJustify
+    centerJustify,
+    onClick
 }) => (
     <Container
         className={className}
         centerAlign={centerAlign}
         centerJustify={centerJustify}
+        onClick={onClick}
     >
         {children}
     </Container>

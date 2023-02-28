@@ -13,3 +13,6 @@ export const ColumnFlex = styled.div`
     flex-direction: column;
     
 `
+export const RowFlex = styled.div`
+    display:flex;    
+`

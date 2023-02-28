@@ -5,8 +5,6 @@ export const Container=styled.button`
     padding: 0.9rem;
     border-radius:20px;
     font-weight: bold;
-    width: ${({fullWidth}) => fullWidth ? '100%': '70%'};
-    max-width: 700px;
 
     &:hover {
         cursor:pointer;
