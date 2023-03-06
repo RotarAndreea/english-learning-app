@@ -12,3 +12,18 @@ export const Icon=styled.img`
     height:auto;
     max-width:75px;
 `
+export const LessonIcon=styled.img`
+    width:40%;
+    height:auto;
+    margin-bottom: 2rem;
+`
+export const FooterIcon=styled.img`
+    width:2.5rem;
+    height:auto;
+    cursor:pointer;
+
+    @media(max-width:768px){
+        width:2rem;
+
+        
+`

@@ -6,7 +6,7 @@ export const PrincipalLayout=styled(ContainerLayout)`
     width:70%;
     margin:auto;
     border-radius:20px;
-    padding:1rem;
+    padding:1.5rem;
     transition: all 0.50s linear;
     margin-top: -30px;
  

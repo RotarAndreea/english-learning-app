@@ -8,6 +8,7 @@ export const Flex = styled.div`
         flex-direction: row;
     }
 `
+
 export const ColumnFlex = styled.div`
     display:flex;
     flex-direction: column;
@@ -15,4 +16,7 @@ export const ColumnFlex = styled.div`
 `
 export const RowFlex = styled.div`
     display:flex;    
+`
+export const CenterFlex=styled.div`
+    justify-content:center;
 `

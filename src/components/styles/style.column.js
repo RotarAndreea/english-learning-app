@@ -4,7 +4,7 @@ import { Column } from "../column";
 export const LessonsColumn=styled(Column)`
     background:#c9c283;
     border-radius:20px;
-    height: 230px;
+    height: 270px;
     width: 40%;
     max-width:400px;
     padding: 0 0.5rem;

@@ -12,4 +12,12 @@ export const SubTitle = styled.p`
     font-size: 0.8rem;
     color: ${prop => prop.color}
 `
-
+export const SmallText = styled.p`
+    
+`
+export const MediumText = styled.p`
+    font-size:0.8rem;
+`
+export const BigText = styled.p`
+    font-size:2.5rem;
+`

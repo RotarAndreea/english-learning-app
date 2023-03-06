@@ -3,7 +3,7 @@ import {BrowserRouter as Router,Routes, Route, Link} from "react-router-dom"
 import Home from '../pages/Home/Home'
 import NewExpressions from '../pages/NewExpressions'
 import NewVerbs from '../pages/NewVerbs'
-import NewNouns from '../pages/NewNouns'
+import NewNouns from '../pages/NewNouns/NewNouns'
 import PersonalProgress from '../pages/PersonalProgress'
 
 const AllRoutes = () => {

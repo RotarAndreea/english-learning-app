@@ -19,12 +19,13 @@ export const Container=styled.button`
     }
     `
 
-    export const Button =({children, className,onClick, disabled})=>
+    export const GeneralButton =({children, className,onClick, disabled, background})=>
     (
         <Container
             className={className}
             onClick={onClick}
             disabled={disabled}
+            background={background}
         >
                 {children}
         </Container>
