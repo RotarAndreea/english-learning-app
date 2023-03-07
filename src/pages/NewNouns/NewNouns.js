@@ -1,19 +1,17 @@
 import React from 'react'
-import CloseButton from '../../components/Buttons/CloseButton'
 import {CenterContainer, Container, ResponsiveContainer} from '../../components/Containers/container'
 import Favorite from '../../components/elements/Favorite'
-import ProgressBar from '../../components/elements/linearProgress/ProgressBar'
 import { GlobalStyles } from '../../components/globalStyles'
 import { Button } from '../../components/styles/styled.button'
 import { FooterTextContainer, TextContainer, UpperContainer } from '../../components/styles/styled.container'
 import { PrincipalLayout } from '../../components/styles/styled.layout'
 import { FooterText, Text } from '../../components/styles/styles.text'
-import { Header } from '../../layouts/Header'
 import arrayNounsData from '../../Datas/nouns'
 import {HomeButton} from '../../components/Buttons/HomeButton'
 import {LessonIcon } from '../../components/elements/images'
 import Rocket from '../../media/images/rocket.png'
 import Baloon from '../../media/images/ballooons.png'
+import ExerciseHeader from '../../components/elements/linearProgress/ExerciseHeader'
 
 const NewNouns = () => {
   const [isFavorite, setIsFavorite]=React.useState(false);
@@ -40,7 +38,7 @@ const NewNouns = () => {
       return wordData.id === word.id ?
       {
         ...wordData,
-        appeard: true
+        appeard: true 
       }
       : {...wordData  }})) 
     setStop(prevValue=>prevValue+1)
@@ -67,17 +65,11 @@ const NewNouns = () => {
 */
   return (
     <>
-        <GlobalStyles/>
-       
-              <Header background={'#d0ca95'}>
-                  <ResponsiveContainer width={80} paddingTop={'1.5'}>
-                    <ProgressBar  progressValue={stop === -1 ? 0 : stop*10}/>
-                  </ResponsiveContainer>
-                  <CloseButton/>
-              </Header>
-              <PrincipalLayout>
+        <GlobalStyles />
+        <ExerciseHeader stop={stop}/>
+        <PrincipalLayout>
 
-              {stop === 10 || stop === -1 ? //if it's the beggining of the lesson or the end, the words will not be displayed on the screen 
+            {stop === 10 || stop === -1 ? //if it's the beggining of the lesson or the end, the words will not be displayed on the screen 
               <>
                     <Container align={'center'} >
                             <Text>{stop === -1 ? 'Are you ready to learn 10 new nouns?' : 'Congrats! You just learned 10 new nouns!'}</Text>
@@ -114,8 +106,8 @@ const NewNouns = () => {
                               </Button>
                     </Container>
               </>
-              }  
-              </PrincipalLayout>
+            }  
+          </PrincipalLayout>
         
     </>
   )
