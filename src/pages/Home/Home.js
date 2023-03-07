@@ -1,21 +1,24 @@
 import React from 'react'
 //import {ThemeProvider} from "styled-components";
-import { Container, ResponsiveContainer } from '../../components/Containers/container';
+import { Container, FooterButtonsContainer, ResponsiveContainer } from '../../components/Containers/container';
 import { HorizontalContainer } from '../../components/Containers/horizontalSliderContainer';
 import { CircularProgress } from '../../components/elements/circularProgress/CircularProgress';
-import { Icon, Image } from '../../components/elements/images';
+import { FooterIcon, Icon, Image } from '../../components/elements/images';
 import { GlobalStyles } from '../../components/globalStyles';
 import { LessonsColumn, NewLessonsColumn } from '../../components/styles/style.column';
-import { NewThingsButton, SimpleButton } from '../../components/styles/styled.button';
+import { NewThingsButton, Button } from '../../components/styles/styled.button';
 import { PrincipalLayout } from '../../components/styles/styled.layout';
 import { CategoryText, SubTitle, Title } from '../../components/tags/texts';
 import ExpressionsImage from '../../media/images/sponge.png'
 import VerbImage from '../../media/images/word-study.png'
 import HeaderIcon from '../../media/images/header-icon.png'
 import NounImage from '../../media/images/expressions.png'
+import SavedWords from '../../media/images/round-heart.png'
+import Calendar from '../../media/images/calendar.png'
+import WrongAnswer from '../../media/images/wrong-answer.png'
 import { useNavigate } from 'react-router-dom';
 import { Header } from '../../layouts/Header';
-
+ 
 const Home = () => {
 
     const navigate = useNavigate();
@@ -29,7 +32,7 @@ const Home = () => {
        <>
        
          <GlobalStyles/>
-         <Header background={'black'}>
+         <Header background={'#160803'}>
             <ResponsiveContainer width={13}>
                 <Icon src={HeaderIcon} />
             </ResponsiveContainer>
@@ -40,9 +43,9 @@ const Home = () => {
          </Header>
          <PrincipalLayout >
             <Container align={'center'} >
-                <SimpleButton onClick={()=>navigateToAnotherPage('/PersonalProgress')}>
+                <Button onClick={()=>navigateToAnotherPage('/PersonalProgress')} background={'#b45231'}>
                     See your progress 🡺 
-                </SimpleButton>
+                </Button>
             </Container>
             <CategoryText>DAILY PRACTICE</CategoryText>
             <HorizontalContainer>
@@ -71,6 +74,11 @@ const Home = () => {
                         <SubTitle> 5 expressions a day</SubTitle>
                         <NewThingsButton>{'>'}</NewThingsButton>
             </NewLessonsColumn>
+            <FooterButtonsContainer>
+                <FooterIcon src={WrongAnswer}/>
+                <FooterIcon src={SavedWords}/>
+                <FooterIcon src={Calendar}/>
+            </FooterButtonsContainer>
             
          </PrincipalLayout>
     
