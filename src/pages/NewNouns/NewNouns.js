@@ -1,17 +1,14 @@
 import React from 'react'
-import {CenterContainer, Container, ResponsiveContainer} from '../../components/Containers/container'
+import {CenterContainer, Container} from '../../components/Containers/container'
 import Favorite from '../../components/elements/Favorite'
 import { GlobalStyles } from '../../components/globalStyles'
 import { Button } from '../../components/styles/styled.button'
 import { FooterTextContainer, TextContainer, UpperContainer } from '../../components/styles/styled.container'
 import { PrincipalLayout } from '../../components/styles/styled.layout'
-import { FooterText, Text } from '../../components/styles/styles.text'
+import { FooterText} from '../../components/styles/styles.text'
 import arrayNounsData from '../../Datas/nouns'
-import {HomeButton} from '../../components/Buttons/HomeButton'
-import {LessonIcon } from '../../components/elements/images'
-import Rocket from '../../media/images/rocket.png'
-import Baloon from '../../media/images/ballooons.png'
-import ExerciseHeader from '../../components/elements/linearProgress/ExerciseHeader'
+import ExerciseHeader from '../../components/elements/ExerciseHeader'
+import StartStopExerciseContainer from '../../components/elements/StartStopExerciseContainer'
 
 const NewNouns = () => {
   const [isFavorite, setIsFavorite]=React.useState(false);
@@ -66,19 +63,12 @@ const NewNouns = () => {
   return (
     <>
         <GlobalStyles />
-        <ExerciseHeader stop={stop}/>
+        <ExerciseHeader stop={stop} background={'#d0ca95'} progressColor={'#a79cc9'}/>
         <PrincipalLayout>
 
             {stop === 10 || stop === -1 ? //if it's the beggining of the lesson or the end, the words will not be displayed on the screen 
               <>
-                    <Container align={'center'} >
-                            <Text>{stop === -1 ? 'Are you ready to learn 10 new nouns?' : 'Congrats! You just learned 10 new nouns!'}</Text>
-                            <LessonIcon src={stop === -1 ? Rocket : Baloon}/>
-                            <Button onClick={start} background={'#a79cc9'} >
-                                  Generate words 🡺 
-                            </Button>
-                            <HomeButton text={'HOME'} background={'#a79cc9'}  />
-                    </Container>
+                    <StartStopExerciseContainer start={start} stop={stop} text={'10 new nouns'} iconStart={"rocket.png"} iconStop={'ballooons.png'}/>
               </>  
               :
               <>

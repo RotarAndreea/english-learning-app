@@ -12,7 +12,7 @@ export const EmptyLine=styled.div`
 export const ProgressLine=styled.div`
     width: ${prop => prop.progressValue+2}%;    
     height: 14px;
-    background:#a79cc9;
+    background:${props =>props.background};
     border-radius:20px;
     transition: all 0.50s linear;
     border:2px solid black;
