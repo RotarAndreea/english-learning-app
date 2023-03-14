@@ -18,7 +18,20 @@ export const NewThingsButton=styled(GeneralButton)`
     border-radius:50%;
     box-shadow: 3px 3px 12px black
 `
+export const RemoveButton=styled.button`
+    width:30px;
+    height:30px;
+    border-radius:20px;
+    border:1px dashed black;
+    cursor:pointer;
+    font-weight:bold;
+    background:#d0ca95;
 
+    position:absolute;
+    left:8px;
+    bottom:8px;
 
-//	#f2a65a orange
-//  background: #f2e25a; //yellow
+    &:hover{
+        background:#f20d0d;
+    }
+`

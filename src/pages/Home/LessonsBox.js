@@ -18,7 +18,9 @@ const LessonBox = ({navigateTo,title,subtitle, image,color, progressValue}) => {
   return (
     <>
       <LessonsBox onClick={navigateToAnotherPage}  >
-       
+        <RemoveButton  >
+          X
+        </RemoveButton>
         <Title>{title}</Title>
         <SubTitle>{subtitle}</SubTitle>
         <Image src={image}/>

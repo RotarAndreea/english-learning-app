@@ -7,7 +7,7 @@ export const HorizontalContainer=styled.div`
   margin: 1rem 0;
  -webkit-overflow-scrolling: touch;
 
-  &::-webkit-scrollbar {
+ &::-webkit-scrollbar {
     display: none;
   }
 `

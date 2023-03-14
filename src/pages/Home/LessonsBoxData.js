@@ -1,5 +1,6 @@
 
-export const NewNouns = {
+export const LessonsBoxData = [
+    {
     id:1,
     navigateTo: '/LearnNewNouns',
     title: 'New Nouns',
@@ -8,8 +9,8 @@ export const NewNouns = {
     color:'brown',
     progressValue:70,
   
-}
-export const NewExpressions = {
+    },
+    {
     id:2,
     navigateTo: '/LearnNewExpressions',
     title: 'New Expressions',
@@ -17,8 +18,8 @@ export const NewExpressions = {
     image: require('../../media/images/sponge.png'),
     color:'#f2e25a',
     progressValue:50,
-}
-export const NewVerb = {
+    },
+    {
     id:3,
     navigateTo: '/LearnNewNouns',
     title: 'New Verbs',
@@ -26,4 +27,5 @@ export const NewVerb = {
     image: require('../../media/images/word-study.png'),
     color:'orange',
     progressValue:20,
-}
+    }
+]

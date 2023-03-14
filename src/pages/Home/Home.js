@@ -14,17 +14,16 @@ import Calendar from '../../media/images/calendar.png'
 import WrongAnswer from '../../media/images/wrong-answer.png'
 import { useNavigate } from 'react-router-dom';
 import { Header } from '../../layouts/Header';
-import {NewExpressions, NewNouns, NewVerb} from "./LessonsBoxData"
+import {LessonsBoxData} from "./LessonsBoxData"
 import LessonBox from './LessonsBox';
 
-const Home = (props) => {
+const Home = () => {
     const navigate = useNavigate();
 
     const navigateToAnotherPage = (address)=> {
         navigate(address);
     };
 
-    
 
   return (
    // <ThemeProvider>
@@ -48,9 +47,9 @@ const Home = (props) => {
             </Container>
             <CategoryText>DAILY PRACTICE</CategoryText>
             <HorizontalContainer >
-                <LessonBox {...NewNouns} />
-                <LessonBox {...NewExpressions}  />
-                <LessonBox {...NewVerb} />
+                <LessonBox {...LessonsBoxData[0]} />
+                <LessonBox {...LessonsBoxData[1]}  />
+                <LessonBox {...LessonsBoxData[2]} />
             </HorizontalContainer>
             <CategoryText>NEW LESSONS TO LEARN</CategoryText>
             <NewLessonsColumn centerJustify={'center'}>
