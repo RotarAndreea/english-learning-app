@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Column } from "../column";
 
-export const LessonsColumn=styled(Column)`
+export const LessonsBox=styled(Column)`
     background:#c9c283;
     border-radius:20px;
     height: 270px;
