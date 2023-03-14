@@ -8,6 +8,7 @@ export const LessonsBoxData = [
     image: require('../../media/images/expressions.png'),
     color:'brown',
     progressValue:70,
+    choosed:true
   
     },
     {
@@ -18,6 +19,7 @@ export const LessonsBoxData = [
     image: require('../../media/images/sponge.png'),
     color:'#f2e25a',
     progressValue:50,
+    choosed:true
     },
     {
     id:3,
@@ -27,5 +29,6 @@ export const LessonsBoxData = [
     image: require('../../media/images/word-study.png'),
     color:'orange',
     progressValue:20,
+    choosed:true
     }
 ]

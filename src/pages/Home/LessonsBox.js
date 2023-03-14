@@ -6,25 +6,25 @@ import { LessonsBox } from '../../components/styles/style.column';
 import { RemoveButton } from '../../components/styles/styled.button';
 import { SubTitle, Title } from '../../components/tags/texts';
 
-const LessonBox = ({navigateTo,title,subtitle, image,color, progressValue}) => {
+const LessonBox = (props) => {
   const navigate = useNavigate();
   
   const navigateToAnotherPage = ()=> {
-      navigate(navigateTo);
+      navigate(props.boxData.navigateTo);
   };
 
 
 
   return (
     <>
-      <LessonsBox onClick={navigateToAnotherPage}  >
-        <RemoveButton  >
+      <LessonsBox onClick={navigateToAnotherPage} choosed={props.boxData.choosed} >
+        <RemoveButton onClick={(event)=>props.handleClick(event,props.boxData.id)}>
           X
         </RemoveButton>
-        <Title>{title}</Title>
-        <SubTitle>{subtitle}</SubTitle>
-        <Image src={image}/>
-        <CircularProgress color={color} progressValue={progressValue} />
+        <Title>{props.boxData.title}</Title>
+        <SubTitle>{props.boxData.subtitle}</SubTitle>
+        <Image src={props.boxData.image}/>
+        <CircularProgress color={props.boxData.color} progressValue={props.boxData.progressValue} />
       </LessonsBox>
     </>
   )

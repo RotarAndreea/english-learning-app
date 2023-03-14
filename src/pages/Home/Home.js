@@ -18,12 +18,32 @@ import {LessonsBoxData} from "./LessonsBoxData"
 import LessonBox from './LessonsBox';
 
 const Home = () => {
+    const [lessonsBox, setLessonsBox]=React.useState(LessonsBoxData)
     const navigate = useNavigate();
 
     const navigateToAnotherPage = (address)=> {
         navigate(address);
     };
 
+    const box =lessonsBox.map(boxData =>(
+        <LessonBox
+            key={boxData.id}
+            boxData={boxData}
+            handleClick={deleteColumn}
+        />
+    ))
+    function deleteColumn(event,id){
+        event.stopPropagation()  // the RemoveButton element is a child of LessonsBox element and this events stop propagation from child to the parent
+        setLessonsBox(prevValue=>prevValue.map(value =>{
+            return value.id === id ?
+                {
+                  ...value,
+                  choosed: false
+                } 
+                :
+                {...value}
+        }));
+      }
 
   return (
    // <ThemeProvider>
@@ -47,9 +67,7 @@ const Home = () => {
             </Container>
             <CategoryText>DAILY PRACTICE</CategoryText>
             <HorizontalContainer >
-                <LessonBox {...LessonsBoxData[0]} />
-                <LessonBox {...LessonsBoxData[1]}  />
-                <LessonBox {...LessonsBoxData[2]} />
+                {box}
             </HorizontalContainer>
             <CategoryText>NEW LESSONS TO LEARN</CategoryText>
             <NewLessonsColumn centerJustify={'center'}>

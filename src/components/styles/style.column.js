@@ -13,7 +13,7 @@ export const LessonsBox=styled(Column)`
     position:relative;
     margin-right: 1.7rem;
     cursor:pointer;
-    display: ${({displayed}) => (displayed===true ? 'inline' : 'none')};
+    display: ${({choosed}) => (choosed === true ? 'inline' : 'none')};
 
     &:hover{
       opacity:0.6;
