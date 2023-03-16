@@ -34,6 +34,8 @@ export const NewLessonsColumn=styled(Column)`
     position:relative;
     margin-top: 1rem;
     cursor:pointer;
+    display: ${({choosed}) => (choosed === true ? 'none' : 'inline')};
+
     
 
     @media(max-width:768px){

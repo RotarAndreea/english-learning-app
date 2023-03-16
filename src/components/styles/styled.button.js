@@ -12,11 +12,13 @@ export const NewThingsButton=styled(GeneralButton)`
     background: black;
     color:white;
     font-family: Tahoma, Helvetica, Arial, Roboto, sans-serif;
-    width: 40px;
+    width: 45px;
     position: absolute;
     right: -15px;
     border-radius:50%;
-    box-shadow: 3px 3px 12px black
+    box-shadow: 3px 3px 12px black;
+    display:flex;
+    justify-content:center;
 `
 export const RemoveButton=styled.button`
     width:30px;

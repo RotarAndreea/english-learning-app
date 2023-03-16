@@ -4,8 +4,7 @@ import { Container, FooterButtonsContainer, ResponsiveContainer } from '../../co
 import { HorizontalContainer } from '../../components/Containers/horizontalSliderContainer';
 import { FooterIcon, Icon, Image } from '../../components/elements/images';
 import { GlobalStyles } from '../../components/globalStyles';
-import {NewLessonsColumn } from '../../components/styles/style.column';
-import { NewThingsButton, Button } from '../../components/styles/styled.button';
+import { Button } from '../../components/styles/styled.button';
 import { PrincipalLayout } from '../../components/styles/styled.layout';
 import { CategoryText, SubTitle, Title } from '../../components/tags/texts';
 import HeaderIcon from '../../media/images/header-icon.png'
@@ -16,9 +15,12 @@ import { useNavigate } from 'react-router-dom';
 import { Header } from '../../layouts/Header';
 import {LessonsBoxData} from "./LessonsBoxData"
 import LessonBox from './LessonsBox';
+import NewLessonsToLearnBox from './NewLessonsToLearnBox';
 
 const Home = () => {
     const [lessonsBox, setLessonsBox]=React.useState(LessonsBoxData)
+    const [displayDailyPracticeText, setDisplayDailyPracticeText]=React.useState(true)
+    const [displayNewLessonsText, setDisplayNewLessonsText]=React.useState(true)
     const navigate = useNavigate();
 
     const navigateToAnotherPage = (address)=> {
@@ -32,18 +34,42 @@ const Home = () => {
             handleClick={deleteColumn}
         />
     ))
+    const newLessonsToLearn=lessonsBox.map(boxData =>(
+        <NewLessonsToLearnBox
+            key={boxData.id}
+            boxData={boxData}
+            handleClick={deleteColumn}
+        />
+    ))
     function deleteColumn(event,id){
         event.stopPropagation()  // the RemoveButton element is a child of LessonsBox element and this events stop propagation from child to the parent
         setLessonsBox(prevValue=>prevValue.map(value =>{
             return value.id === id ?
                 {
                   ...value,
-                  choosed: false
+                  choosed: !value.choosed
                 } 
                 :
                 {...value}
         }));
       }
+
+      React.useEffect(()=>{
+        toggleText()
+        toggleDailyPracticeText()
+      },[lessonsBox])
+      const toggleText = ()=> {
+        if(lessonsBox[0].choosed === true && lessonsBox[1].choosed === true && lessonsBox[2].choosed === true)
+            setDisplayNewLessonsText(true)
+        else
+            setDisplayNewLessonsText(false)
+    };
+      const toggleDailyPracticeText = ()=> {
+        if(lessonsBox[0].choosed === false && lessonsBox[1].choosed === false && lessonsBox[2].choosed === false)
+            setDisplayDailyPracticeText(true)
+        else
+            setDisplayDailyPracticeText(false)
+    };
 
   return (
    // <ThemeProvider>
@@ -66,15 +92,21 @@ const Home = () => {
                 </Button>
             </Container>
             <CategoryText>DAILY PRACTICE</CategoryText>
-            <HorizontalContainer >
-                {box}
-            </HorizontalContainer>
+            {displayDailyPracticeText ?
+                'Add new lessons to practice'
+                :
+                <HorizontalContainer >
+                    {box}
+                </HorizontalContainer>
+            }
             <CategoryText>NEW LESSONS TO LEARN</CategoryText>
-            <NewLessonsColumn centerJustify={'center'}>
-                        <Title> Learn New Things</Title>
-                        <SubTitle> 5 expressions a day</SubTitle>
-                        <NewThingsButton>{'>'}</NewThingsButton>
-            </NewLessonsColumn>
+            {displayNewLessonsText  ?
+                'Nothing new to share'
+            :
+                <HorizontalContainer>
+                        {newLessonsToLearn} 
+                </HorizontalContainer>
+            }
             <FooterButtonsContainer>
                 <FooterIcon src={WrongAnswer}/>
                 <FooterIcon src={SavedWords}/>
