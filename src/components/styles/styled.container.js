@@ -50,3 +50,7 @@ export const SelectedContainer=styled(SelectContainer)`
     justify-content:space-between;
     background:${props => props.background};
 `
+export const FooterContainer=styled(RowContainer)`
+    width:90%;
+    margin:1rem;
+`

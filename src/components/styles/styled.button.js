@@ -37,3 +37,6 @@ export const RemoveButton=styled.button`
         background:#f20d0d;
     }
 `
+export const HalfButton=styled(GeneralButton)`
+    width:50%;
+`

@@ -1,8 +1,8 @@
 import React from 'react'
-import { ColumnFlex } from '../../components/display/flex'
+import { ColumnFlex, RowFlex } from '../../components/display/flex'
 import { TrashIcon } from '../../components/elements/images'
-import { Button } from '../../components/styles/styled.button'
-import { SelectedContainer, WordsContainer } from '../../components/styles/styled.container'
+import { Button, HalfButton } from '../../components/styles/styled.button'
+import { FooterContainer, SelectedContainer, WordsContainer } from '../../components/styles/styled.container'
 import { HeaderText } from '../../components/styles/styles.text'
 import Trash from '../../media/images/trash.png'
 
@@ -52,8 +52,11 @@ const WordsBox = ({title, category,background}) => {
         <ColumnFlex>   
           {word}
         </ColumnFlex>
-        <Button onClick={()=>saveOptions(words)}>Cancel</Button>
-        <Button onClick={()=>saveOptions(deleteWords)}>Save Changes</Button>
+        <FooterContainer>
+            <HalfButton onClick={()=>saveOptions(words)}>Cancel</HalfButton>
+            <HalfButton onClick={()=>saveOptions(deleteWords)}>Save Changes</HalfButton>
+        </FooterContainer>
+        
     </WordsContainer>
   )
 }
