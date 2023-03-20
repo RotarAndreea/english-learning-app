@@ -16,9 +16,6 @@ const NewNouns = () => {
   const[word,setWord]=React.useState(arrayNounsData.sort(() => 0.5 - Math.random())[0])
   const[words,setWords]=React.useState(()=>JSON.parse(localStorage.getItem("nouns")) || arrayNounsData)
   const[stop,setStop]=React.useState(-1); //stop=-1 it means that the lesson has not started, when stop=10 => the end of the lesson
-  
-  function starColor(){setIsFavorite(prevValue=> !prevValue)
-  }
 
   function start(){
     setStop(0) //stop=0 it means that the lesson starts 
@@ -39,28 +36,24 @@ const NewNouns = () => {
       }
       : {...wordData  }})) 
     setStop(prevValue=>prevValue+1)
+    setIsFavorite(false);
   }
   function addToFavorite(){ //function for randomly changing the word and increase the stop state
     setWords(prevValue=>prevValue.map(wordData =>{
       return wordData.id === word.id ?
       {
         ...wordData,
-        isFavorite: true
+        isFavorite: !wordData.isFavorite
       }
       : {...wordData  }})) 
+      setIsFavorite(prevValue=> !prevValue);
   }
  
   React.useEffect(()=>{
     localStorage.setItem("nouns", JSON.stringify(words))
   },[words])
   
- /* React.useEffect(()=>{ //verify if the client reached 10 words. if he did, the task is over
-    if(stop === 10){
-      console.log("Felicitari! Ai indeplinit task-ul")
-    }
-  },[stop])
-*/
-  return (
+  return ( 
     <>
         <GlobalStyles />
         <ExerciseHeader stop={stop} background={'#d0ca95'} progressColor={'#a79cc9'}/>
@@ -80,7 +73,7 @@ const NewNouns = () => {
                               </UpperContainer>
                               <FooterTextContainer>
                                   <FooterText onClick={showTranslate}>{isShown ? 'Hide the translate' : 'Show the translate'} </FooterText>
-                                  <Favorite onClick={addToFavorite} handleClick={starColor} isFavorite={isFavorite} />
+                                  <Favorite addToFavorite={addToFavorite} isFavorite={isFavorite} />
                               </FooterTextContainer>
                     </TextContainer>
                     {isShown &&

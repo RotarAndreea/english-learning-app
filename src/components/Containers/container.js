@@ -39,5 +39,12 @@ export const FooterButtonsContainer=styled.div`
     @media(max-width:768px){
         width:80%;
         height:2rem;
+`
+export const SelectContainer=styled.div`
+    display:flex;
+    width:100%;
 
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
 `

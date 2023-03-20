@@ -5,9 +5,9 @@ import styled from 'styled-components'
 const Favorite = (props) => {
     const starIcon= props.isFavorite ? "red-heart.png" : 'slim-empty-heart.png';
   return (
-    <StarContainer >
+    <StarContainer onClick={props.addToFavorite}>
         <StarIcon src={require(`../../media/images/${starIcon}`)}
-                  onClick={props.handleClick}
+                  
         />
     </StarContainer>
   )

@@ -1,12 +1,12 @@
 import React from 'react'
-import { Container } from '../../../components/Containers/container';
-import ExerciseHeader from '../../../components/elements/ExerciseHeader';
-import { GlobalStyles } from '../../../components/globalStyles'
-import { Button } from '../../../components/styles/styled.button';
-import { PrincipalLayout } from '../../../components/styles/styled.layout'
+import { Container } from '../../components/Containers/container';
+import ExerciseHeader from '../../components/elements/ExerciseHeader';
+import { GlobalStyles } from '../../components/globalStyles'
+import { Button } from '../../components/styles/styled.button';
+import { PrincipalLayout } from '../../components/styles/styled.layout'
 import Expression from './ExpressionElements';
-import arrayExpressions from '../../../Datas/expressions'
-import StartStopExerciseContainer from '../../../components/elements/StartStopExerciseContainer';
+import arrayExpressions from '../../Datas/expressions'
+import StartStopExerciseContainer from '../../components/elements/StartStopExerciseContainer';
 
 let index=0;
 const NewExpressions = () => {
@@ -16,7 +16,6 @@ const NewExpressions = () => {
     function extractExpression(){
       setExpression(arrayExpressions[index])
       index++;
-      console.log(index)
       setStop(prevValue=>prevValue+2)
     }
 

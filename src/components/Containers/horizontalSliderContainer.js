@@ -11,19 +11,3 @@ export const HorizontalContainer=styled.div`
     display: none;
   }
 `
-/*
-export const Column=({
-  children,
-  className, 
-  centerAlign,
-  centerJustify
-}) => (
-  <Container
-      className={className}
-      centerAlign={centerAlign}
-      centerJustify={centerJustify}
-  >
-      {children}
-  </Container>
-)
-*/

@@ -24,6 +24,9 @@ export const FooterIcon=styled.img`
 
     @media(max-width:768px){
         width:2rem;
+`
+export const TrashIcon=styled.img`
+        width:0.9rem;
+        cursor:pointer;
 
-        
 `

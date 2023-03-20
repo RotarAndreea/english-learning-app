@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ContainerLayout } from "../../layouts/ContainerLayout";
+import { ResponsiveContainer } from "../Containers/container";
 
 export const PrincipalLayout=styled(ContainerLayout)`
     background:#d0ca95;
@@ -13,10 +14,9 @@ export const PrincipalLayout=styled(ContainerLayout)`
     @media(max-width:768px){
         width:100%;
 `
-
-//#e8cd7d
-//#d9c68c
-
-//#c2ad70
-
-//#d1cc94
+export const RespContainer=styled(ResponsiveContainer)`
+    justify-content:space-around;
+    
+    @media(min-width:768px){
+        flex-direction: row; 
+`

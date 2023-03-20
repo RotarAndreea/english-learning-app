@@ -1,11 +1,11 @@
 import React from "react"
-import { Container } from "../components/Containers/container"
+import { Container, ResponsiveContainer } from "../components/Containers/container"
 import { Flex } from "../components/display/flex"
 
 export const Layout = ({children,className}) =>(
-    <Container className={className}>
+    <ResponsiveContainer className={className}>
         <Flex>
             {children}
         </Flex>
-    </Container>
+    </ResponsiveContainer>
 )
