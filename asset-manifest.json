@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/english-learning-app/static/css/main.e6c13ad2.css",
+    "main.js": "/english-learning-app/static/js/main.cae4434e.js",
+    "static/js/787.abe2e375.chunk.js": "/english-learning-app/static/js/787.abe2e375.chunk.js",
+    "static/media/expressions.png": "/english-learning-app/static/media/expressions.53e8b4eafcbe3e62d514.png",
+    "static/media/sponge.png": "/english-learning-app/static/media/sponge.92ed6b2a45bdfd8e2521.png",
+    "static/media/word-study.png": "/english-learning-app/static/media/word-study.3b115bdda615d61997ee.png",
+    "static/media/header-icon.png": "/english-learning-app/static/media/header-icon.b83abfccf938b0c52d70.png",
+    "static/media/rainbow.png": "/english-learning-app/static/media/rainbow.5c6e23b9bcd948b450fe.png",
+    "index.html": "/english-learning-app/index.html",
+    "main.e6c13ad2.css.map": "/english-learning-app/static/css/main.e6c13ad2.css.map",
+    "main.cae4434e.js.map": "/english-learning-app/static/js/main.cae4434e.js.map",
+    "787.abe2e375.chunk.js.map": "/english-learning-app/static/js/787.abe2e375.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.cae4434e.js"
+  ]
+}
