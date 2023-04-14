@@ -2,7 +2,7 @@ import React from 'react'
 //import {ThemeProvider} from "styled-components";
 import { Container, FooterButtonsContainer, ResponsiveContainer } from '../../components/Containers/container';
 import { HorizontalContainer } from '../../components/Containers/horizontalSliderContainer';
-import { FooterIcon, Icon, Image } from '../../components/elements/images';
+import { FooterIcon, Icon} from '../../components/elements/images';
 import { GlobalStyles } from '../../components/globalStyles';
 import { Button } from '../../components/styles/styled.button';
 import { PrincipalLayout } from '../../components/styles/styled.layout';
@@ -81,7 +81,7 @@ const Home = () => {
                 <Icon src={HeaderIcon} />
             </ResponsiveContainer>
             <ResponsiveContainer>
-                <Title color={'white'}>BeARealSpiker</Title>
+                <Title color={'white'}>BeARealSpeaker</Title>
                 <SubTitle color={'white'}>Learn everyday</SubTitle>
             </ResponsiveContainer>
          </Header>
@@ -108,8 +108,8 @@ const Home = () => {
                 </HorizontalContainer>
             }
             <FooterButtonsContainer>
-                <FooterIcon src={WrongAnswer}/>
-                <FooterIcon src={SavedWords}/>
+                <FooterIcon src={WrongAnswer} />
+                <FooterIcon src={SavedWords} onClick={() => navigateToAnotherPage("/FavoriteItems")}/>
                 <FooterIcon src={Calendar}/>
             </FooterButtonsContainer>
             

@@ -1,6 +1,23 @@
-export default [{"id":0,"value":"Diamond","translation":"Diamant","isFavorite":false,"appeard":false},
-                 {"id":1,"value":" Manager","translation":" Manager","isFavorite":false,"appeard":false},
-                 {"id":2,"value":" Area","translation":" Zona","isFavorite":false,"appeard":false},
+export default 
+[
+    {"id":0,
+     "value":"Diamond",
+     "translation":"Diamant",
+     "isFavorite":false,
+     "appeard":false
+    },          
+    {"id":1,
+     "value":" Manager",
+     "translation":" Manager",
+     "isFavorite":false,
+     "appeard":false
+    },
+    {"id":2,
+     "value":" Area",
+     "translation":" Zona",
+     "isFavorite":false,
+     "appeard":false
+    },
                  {"id":3,"value":" Bubble","translation":" Bulă","isFavorite":false,"appeard":false},
                  {"id":4,"value":" Insect","translation":" Insectă","isFavorite":false,"appeard":false},
                  {"id":5,"value":" Pan","translation":" Pan","isFavorite":false,"appeard":false},
