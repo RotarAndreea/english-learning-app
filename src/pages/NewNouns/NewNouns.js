@@ -6,15 +6,15 @@ import { Button } from '../../components/styles/styled.button'
 import { FooterTextContainer, TextContainer, UpperContainer } from '../../components/styles/styled.container'
 import { PrincipalLayout } from '../../components/styles/styled.layout'
 import { FooterText} from '../../components/styles/styles.text'
-import arrayNounsData from '../../Datas/nouns'
+import {nouns} from '../../Datas/nouns'
 import ExerciseHeader from '../../components/elements/ExerciseHeader'
 import StartStopExerciseContainer from '../../components/elements/StartStopExerciseContainer'
 
 const NewNouns = () => {
   const [isFavorite, setIsFavorite]=React.useState(false);
   const [isShown, setIsShown]=React.useState(false);
-  const[word,setWord]=React.useState(arrayNounsData.sort(() => 0.5 - Math.random())[0])
-  const[words,setWords]=React.useState(()=>JSON.parse(localStorage.getItem("nouns")) || arrayNounsData)
+  const[word,setWord]=React.useState(nouns.sort(() => 0.5 - Math.random())[0])
+  const[words,setWords]=React.useState(()=>JSON.parse(localStorage.getItem("nouns")) || nouns)
   const[stop,setStop]=React.useState(-1); //stop=-1 it means that the lesson has not started, when stop=10 => the end of the lesson
 
   function start(){

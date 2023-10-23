@@ -5,7 +5,7 @@ import { GlobalStyles } from '../../components/globalStyles'
 import { Button } from '../../components/styles/styled.button';
 import { PrincipalLayout } from '../../components/styles/styled.layout'
 import Expression from './ExpressionElements';
-import arrayExpressions from '../../Datas/expressions'
+import {expressions} from '../../Datas/expressions'
 import StartStopExerciseContainer from '../../components/elements/StartStopExerciseContainer';
 
 let index=0;
@@ -14,7 +14,7 @@ const NewExpressions = () => {
     const[stop,setStop]=React.useState(-1); //stop=-1 it means that the lesson has not started, when stop=5 => the end of the lesson
 
     function extractExpression(){
-      setExpression(arrayExpressions[index])
+      setExpression(expressions[index])
       index++;
       setStop(prevValue=>prevValue+2)
     }

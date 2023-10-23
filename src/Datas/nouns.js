@@ -1,4 +1,4 @@
-export default 
+export const nouns=
 [
     {"id":0,
      "value":"Diamond",

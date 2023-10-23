@@ -1,4 +1,4 @@
-export default[
+export const expressions=[
 {
     id:1,
     expression: "Hit the books",
