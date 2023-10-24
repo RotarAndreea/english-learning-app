@@ -12,16 +12,6 @@ export const LessonsBoxData = [
     },
     {
         id:2,
-        navigateTo: '/LearnNewExpressions',
-        title: 'New Expressions',
-        subtitle: '5 expressions a day',
-        image: require('../../media/images/sponge.png'),
-        color:'#f2e25a',
-        progressValue:50,
-        choosed:true
-    },
-    {
-        id:3,
         navigateTo: '/LearnNewVerbs',
         title: 'New Verbs',
         subtitle: '10 verbs a day',
@@ -31,11 +21,11 @@ export const LessonsBoxData = [
         choosed:true
     },
     {
-        id:4,
+        id:3,
         navigateTo: '/LearnNewAdjectives',
         title: 'New Adjectives',
         subtitle: '10 adjectives a day',
-        image: require('../../media/images/expressions.png'),
+        image: require('../../media/images/sponge.png'),
         color:'brown',
         progressValue:60,
         choosed:true
