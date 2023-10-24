@@ -1,6 +1,18 @@
 import styled from "styled-components";
 import { Container, RowContainer, SelectContainer } from "../Containers/container";
 
+export const AppContainer=styled.div`
+    display:flex;
+    flex-direction:column;
+    width:70%;
+    margin:auto;
+    max-width:1000px;
+
+    @media(max-width:768px){
+        width:100%;
+    }    
+`
+
 export const TextContainer=styled(Container)`
     border:2px solid #0d0c0c;
     border-radius:30px;

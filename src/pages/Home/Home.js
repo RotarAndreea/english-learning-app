@@ -72,7 +72,6 @@ const Home = () => {
   return (
    // <ThemeProvider>
        <>
-       
          <GlobalStyles/>
          <Header background={'#160803'}>
             <ResponsiveContainer width={13}>
@@ -108,7 +107,6 @@ const Home = () => {
             </FooterButtonsContainer>
             
          </PrincipalLayout>
-    
        </>
   //  </ThemeProvider>
   )
