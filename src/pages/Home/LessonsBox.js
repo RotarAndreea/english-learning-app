@@ -13,8 +13,6 @@ const LessonBox = (props) => {
       navigate(props.boxData.navigateTo);
   };
 
-
-
   return (
     <>
       <LessonsBox onClick={navigateToAnotherPage} choosed={props.boxData.choosed} >

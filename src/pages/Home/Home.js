@@ -18,8 +18,6 @@ import NewLessonsToLearnBox from './NewLessonsToLearnBox';
 
 const Home = () => {
     const [lessonsBox, setLessonsBox]=React.useState(LessonsBoxData)
-    const [displayDailyPracticeText, setDisplayDailyPracticeText]=React.useState(true)
-    const [displayNewLessonsText, setDisplayNewLessonsText]=React.useState(true)
     const navigate = useNavigate();
 
     const navigateToAnotherPage = (address)=> {
@@ -51,18 +49,16 @@ const Home = () => {
                 :
                 {...value}
         }));
-        
       }
-
-      
+      /*
       const toggleText = ()=> {
-        if(lessonsBox[0].choosed === true && lessonsBox[1].choosed === true && lessonsBox[2].choosed === true)
+        if(lessonsBox[0].choosed === true && lessonsBox[1].choosed === true && lessonsBox[2].choosed === true && lessonsBox[3].choosed === true)
             setDisplayNewLessonsText(true)
         else
             setDisplayNewLessonsText(false)
     };
       const toggleDailyPracticeText = ()=> {
-        if(lessonsBox[0].choosed === false && lessonsBox[1].choosed === false && lessonsBox[2].choosed === false)
+        if(lessonsBox[0].choosed === false && lessonsBox[1].choosed === false && lessonsBox[2].choosed === false && lessonsBox[3].choosed === false)
             setDisplayDailyPracticeText(true)
         else
             setDisplayDailyPracticeText(false)
@@ -72,7 +68,7 @@ const Home = () => {
         toggleText()
         toggleDailyPracticeText()
       },[lessonsBox])
-
+*/
   return (
    // <ThemeProvider>
        <>
@@ -94,21 +90,17 @@ const Home = () => {
                 </Button>
             </Container>
             <CategoryText>DAILY PRACTICE</CategoryText>
-            {displayDailyPracticeText ?
-                'Add new lessons to practice'
-                :
+     
                 <HorizontalContainer >
                     {box}
                 </HorizontalContainer>
-            }
+        
             <CategoryText>NEW LESSONS TO LEARN</CategoryText>
-            {displayNewLessonsText  ?
-                'Nothing new to share'
-            :
+          
                 <HorizontalContainer>
                         {newLessonsToLearn} 
                 </HorizontalContainer>
-            }
+            
             <FooterButtonsContainer>
                 <FooterIcon src={WrongAnswer} />
                 <FooterIcon src={SavedWords} onClick={() => navigateToAnotherPage("/FavoriteItems")}/>
