@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, { Children } from 'react';
+import React from 'react';
 import { useNavigate } from "react-router";
 
 const CloseButton = () => {

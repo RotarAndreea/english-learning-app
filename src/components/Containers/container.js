@@ -48,3 +48,10 @@ export const SelectContainer=styled.div`
         background-color: rgba(0, 0, 0, 0.2);
     }
 `
+
+export const FitContentContainer=styled.div`
+    padding:8px;
+    overflow:auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius:inherit;
+`

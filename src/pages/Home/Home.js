@@ -1,5 +1,4 @@
 import React from 'react'
-//import {ThemeProvider} from "styled-components";
 import { Container, FooterButtonsContainer, ResponsiveContainer } from '../../components/Containers/container';
 import { HorizontalContainer } from '../../components/Containers/horizontalSliderContainer';
 import { FooterIcon, Icon} from '../../components/elements/images';
@@ -52,12 +51,10 @@ const Home = () => {
                 :
                 {...value}
         }));
+        
       }
 
-      React.useEffect(()=>{
-        toggleText()
-        toggleDailyPracticeText()
-      },[lessonsBox])
+      
       const toggleText = ()=> {
         if(lessonsBox[0].choosed === true && lessonsBox[1].choosed === true && lessonsBox[2].choosed === true)
             setDisplayNewLessonsText(true)
@@ -70,6 +67,11 @@ const Home = () => {
         else
             setDisplayDailyPracticeText(false)
     };
+
+    React.useEffect(()=>{
+        toggleText()
+        toggleDailyPracticeText()
+      },[lessonsBox])
 
   return (
    // <ThemeProvider>
