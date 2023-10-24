@@ -23,12 +23,23 @@ export const LessonsBoxData = [
     },
     {
     id:3,
-    navigateTo: '/LearnNewNouns',
+    navigateTo: '/LearnNewVerbs',
     title: 'New Verbs',
     subtitle: '10 verbs a day',
     image: require('../../media/images/word-study.png'),
     color:'orange',
     progressValue:20,
     choosed:true
-    }
+    },
+    {
+        id:4,
+        navigateTo: '/LearnNewAdjectives',
+        title: 'New Adjectives',
+        subtitle: '10 adjectives a day',
+        image: require('../../media/images/expressions.png'),
+        color:'brown',
+        progressValue:60,
+        choosed:true
+      
+        },
 ]
