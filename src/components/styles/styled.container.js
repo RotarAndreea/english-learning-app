@@ -41,9 +41,8 @@ export const WordsContainer=styled(Container)`
     @media(max-width:768px){
         width:80%;
         margin:1rem auto;
-        
-    `
-
+    }    
+`
 export const SelectedContainer=styled(SelectContainer)`
     color:white;
     text-shadow: 2px 2px 8px black;
