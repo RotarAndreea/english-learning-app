@@ -19,10 +19,14 @@ export default CloseButton
 export const CloseButtonStyles=styled.button`
     width:30px;
     height:30px;
-    border-radius:20px;
+    border-radius:50%;
     border:2px solid black;
     cursor:pointer;
     font-weight:bold;
+    color:black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
     &:hover{
         background:#f20d0d;

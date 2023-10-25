@@ -15,6 +15,9 @@ import { Header } from '../../layouts/Header';
 import {LessonsBoxData} from "./LessonsBoxData"
 import LessonBox from './LessonsBox';
 import NewLessonsToLearnBox from './NewLessonsToLearnBox';
+import { VscArrowRight } from "react-icons/vsc";
+import { ReactIcon } from '../../components/responsiveComponents/randomWords/RandomWordsStyles';
+
 
 const Home = () => {
     const [lessonsBox, setLessonsBox]=React.useState(LessonsBoxData)
@@ -85,7 +88,10 @@ const Home = () => {
          <PrincipalLayout >
             <Container align={'center'} >
                 <Button onClick={()=>navigateToAnotherPage('/PersonalProgress')} background={'#b45231'}>
-                    See your progress 🡺 
+                    See your progress 
+                    <ReactIcon>
+                        <VscArrowRight/>
+                    </ReactIcon> 
                 </Button>
             </Container>
             <CategoryText>DAILY PRACTICE</CategoryText>
