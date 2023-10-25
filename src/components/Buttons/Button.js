@@ -5,6 +5,9 @@ export const Container=styled.button`
     padding: 0.9rem;
     border-radius:20px;
     font-weight: bold;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
     &:hover {
         cursor:pointer;
