@@ -21,27 +21,27 @@ export const HomeButton =({background, text, width})=>
 }
 
 export const StyledHomeButton = styled.button`
-border: none;
-padding: 0.9rem;
-border-radius:20px;
-font-weight: bold;
-margin-bottom:1rem;
-background: ${props => props.background};
-font-family: Tahoma, Helvetica, Arial, Roboto, sans-serif;
-width:70%;
-width: ${prop => prop.width}%;
-max-width: 700px; 
-color:black;
+    border: none;
+    padding: 0.9rem;
+    border-radius:20px;
+    font-weight: bold;
+    margin-bottom:1rem;
+    background: ${props => props.background};
+    font-family: Tahoma, Helvetica, Arial, Roboto, sans-serif;
+    width:70%;
+    width: ${prop => prop.width}%;
+    max-width: 700px; 
+    color:black;
 
-&:hover {
-    cursor:pointer;
-    opacity: 0.7;
-}
+    &:hover {
+        cursor:pointer;
+        opacity: 0.7;
+    }
 
-&:active{
-    font-weight:bold;
-    outline-style: solid;
-    outline-color: #d9d4a6;
-    opacity:1;
-}
+    &:active{
+        font-weight:bold;
+        outline-style: solid;
+        outline-color: #d9d4a6;
+        opacity:1;
+    }
 `

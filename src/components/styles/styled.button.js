@@ -29,11 +29,13 @@ export const RemoveButton=styled.button`
     cursor:pointer;
     font-weight:bold;
     background:#d0ca95;
-    color:black;
-
+    color:black;    
     position:absolute;
     left:8px;
     bottom:8px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
     &:hover{
         background:#f20d0d;

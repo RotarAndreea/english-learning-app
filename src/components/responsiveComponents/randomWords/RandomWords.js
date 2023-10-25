@@ -99,7 +99,7 @@ const RandomWords = ({type,words}) => {
                       }
                       <Container align={'center'} >
                                 <Button  background={'#a79cc9'} onClick={()=>change()}>
-                                    {stop === 9 ? 'Finish' : 'Next Word 🡺'} 
+                                    {stop === 9 ? 'Finish' : `Next Word`} 
                                 </Button>
                       </Container>
                 </>
