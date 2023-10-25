@@ -7,6 +7,7 @@ export const Button=styled(GeneralButton)`
     font-family: Tahoma, Helvetica, Arial, Roboto, sans-serif;
     width: 70%;
     max-width: 700px; 
+    color:black;
 `
 export const NewThingsButton=styled(GeneralButton)`
     background: black;
