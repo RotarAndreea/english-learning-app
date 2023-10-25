@@ -21,7 +21,7 @@ const LessonBox = (props) => {
         </RemoveButton>
         <Title>{props.boxData.title}</Title>
         <SubTitle>{props.boxData.subtitle}</SubTitle>
-        <Image src={props.boxData.image}/>
+        <Image src={props.boxData.image} draggable="false"/>
         <CircularProgress color={props.boxData.color} progressValue={props.boxData.progressValue} />
       </LessonsBox>
     </>

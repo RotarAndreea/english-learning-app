@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useRef, useState } from 'react'
 import { Container, FooterButtonsContainer, ResponsiveContainer } from '../../components/Containers/container';
 import { HorizontalContainer } from '../../components/Containers/horizontalSliderContainer';
 import { FooterIcon, Icon} from '../../components/elements/images';
@@ -22,6 +22,10 @@ import { ReactIcon } from '../../components/responsiveComponents/randomWords/Ran
 const Home = () => {
     const [lessonsBox, setLessonsBox]=React.useState(LessonsBoxData)
     const navigate = useNavigate();
+    const containerRef=useRef(null);
+    const[isDown, setIsDown]=useState(false);
+    const [startX, setStartX]=useState(null);
+    const [scrollLeft, setScrollLeft]=useState(null);
 
     const navigateToAnotherPage = (address)=> {
         navigate(address);
@@ -72,6 +76,26 @@ const Home = () => {
         toggleDailyPracticeText()
       },[lessonsBox])
 */
+    const handleMouseDown=(e)=>{
+        setIsDown(true);
+        setStartX(e.pageX-containerRef.current.offsetLeft);
+        setScrollLeft(containerRef.current.scrollLeft);
+        console.log(scrollLeft)
+    }
+    const handleMouseLeave=()=>{
+        setIsDown(false);
+    }
+    const handleMouseUp=()=>{
+        setIsDown(false);
+    }
+    const handleMouseMove=(e)=>{
+        if(!isDown) return;
+       // e.preventDeafult();
+        const x=e.pageX-containerRef.current.offsetLeft;
+        const walk=(x-startX)*1.5;
+        containerRef.current.scrollLeft=scrollLeft-walk;
+    };
+
   return (
    // <ThemeProvider>
        <>
@@ -96,7 +120,13 @@ const Home = () => {
             </Container>
             <CategoryText>DAILY PRACTICE</CategoryText>
      
-                <HorizontalContainer >
+                <HorizontalContainer 
+                    ref={containerRef}
+                    onMouseDown={handleMouseDown}
+                    onMouseLeave={handleMouseLeave}
+                    onMouseUp={handleMouseUp}
+                    onMouseMove={(event)=>handleMouseMove(event)}
+                >
                     {box}
                 </HorizontalContainer>
         
