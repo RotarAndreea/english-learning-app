@@ -5,8 +5,7 @@ export const LessonsBox=styled(Column)`
     background:#c9c283;
     border-radius:20px;
     height: 270px;
-    width: 40%;
-    max-width:400px;
+    width: calc(100%/3);
     padding: 0 0.5rem;
     transition: all 0.50s linear;
     flex: 0 0 auto;
@@ -26,19 +25,13 @@ export const NewLessonsColumn=styled(Column)`
     background:#c9c283;
     border-radius:20px;
     height: 110px;
-    width: 70%;
-    max-width:500px;
+    width:calc(100%/2);;
     padding: 0 0.5rem;
     transition: all 0.50s linear;
     flex: 0 0 auto;
     position:relative;
     margin-top: 1rem;
     cursor:pointer;
-    display: ${({choosed}) => (choosed === true ? 'none' : 'inline')};
-
-    
-
-    @media(max-width:768px){
-      width:70%;
+    display: ${({choosed}) => (choosed === true ? 'none' : 'inline')};    
 `
 

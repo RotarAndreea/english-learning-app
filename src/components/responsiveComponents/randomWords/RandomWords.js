@@ -25,7 +25,7 @@ const RandomWords = ({type,words}) => {
     const fetchData=async()=>{
       do{
         const randomWord = words[Math.floor(Math.random() * words.length)];
-        console.log('random word: '+randomWord)
+        console.log(randomWord)
         const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${randomWord}`;
         try {
             const response = await fetch(url);
@@ -37,7 +37,6 @@ const RandomWords = ({type,words}) => {
         var finded=wantedPartOfSpeech(result);
       }while(finded === false)
       setWord(result[objectIndex]);
-      console.log(result);
     }
   
     function wantedPartOfSpeech(word){    

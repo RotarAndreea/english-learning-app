@@ -15,6 +15,7 @@ export const AppContainer=styled.div`
 
 export const TextContainer=styled(Container)`
     border:2px solid #0d0c0c;
+    overflow:hidden;
     border-radius:30px;
     width:70%;
     max-width:700px;

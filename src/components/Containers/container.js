@@ -51,7 +51,30 @@ export const SelectContainer=styled.div`
 
 export const FitContentContainer=styled.div`
     padding:8px;
-    overflow:auto;
+    overflow-x: hidden; 
+    overflow-y: auto; 
     -webkit-overflow-scrolling: touch;
     border-radius:inherit;
+
+    ::-webkit-scrollbar {
+        width: 6px;
+      }
+      
+      /* Track */
+      ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey; 
+        border-radius: inherit;
+      }
+       
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: grey; 
+        border-radius: inherit;
+      }
+      
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(51, 51, 51,1); 
+      }
+
 `
