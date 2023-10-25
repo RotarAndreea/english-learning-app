@@ -31,6 +31,7 @@ font-family: Tahoma, Helvetica, Arial, Roboto, sans-serif;
 width:70%;
 width: ${prop => prop.width}%;
 max-width: 700px; 
+color:black;
 
 &:hover {
     cursor:pointer;
