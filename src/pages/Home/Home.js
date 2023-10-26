@@ -57,25 +57,11 @@ const Home = () => {
                 {...value}
         }));
       }
-      /*
-      const toggleText = ()=> {
-        if(lessonsBox[0].choosed === true && lessonsBox[1].choosed === true && lessonsBox[2].choosed === true && lessonsBox[3].choosed === true)
-            setDisplayNewLessonsText(true)
-        else
-            setDisplayNewLessonsText(false)
-    };
-      const toggleDailyPracticeText = ()=> {
-        if(lessonsBox[0].choosed === false && lessonsBox[1].choosed === false && lessonsBox[2].choosed === false && lessonsBox[3].choosed === false)
-            setDisplayDailyPracticeText(true)
-        else
-            setDisplayDailyPracticeText(false)
-    };
 
-    React.useEffect(()=>{
-        toggleText()
-        toggleDailyPracticeText()
-      },[lessonsBox])
-*/
+        const numberOfChoosedLessons= lessonsBox.filter(function(obj){
+            return obj.choosed === true;
+        }).length;
+      
     const handleMouseDown=(e)=>{
         setIsDown(true);
         setStartX(e.pageX-containerRef.current.offsetLeft);
@@ -119,7 +105,9 @@ const Home = () => {
                 </Button>
             </Container>
             <CategoryText>DAILY PRACTICE</CategoryText>
-     
+            {numberOfChoosedLessons === 0 ?
+                <div>Please choose a lesson to learn</div>
+            :
                 <HorizontalContainer 
                     ref={containerRef}
                     onMouseDown={handleMouseDown}
@@ -129,12 +117,17 @@ const Home = () => {
                 >
                     {box}
                 </HorizontalContainer>
-        
+            }
+                       
             <CategoryText>NEW LESSONS TO LEARN</CategoryText>
-          
+            {numberOfChoosedLessons === 3 ?
+                <div>You don't have nothing new to learn</div>
+            :
                 <HorizontalContainer>
                         {newLessonsToLearn} 
                 </HorizontalContainer>
+            }
+                
             
             <FooterButtonsContainer>
                 <FooterIcon src={WrongAnswer} />
