@@ -8,6 +8,10 @@ import { Button } from "../../styles/styled.button";
 import { FooterTextContainer, TextContainer, UpperContainer } from "../../styles/styled.container";
 import { PrincipalLayout } from "../../styles/styled.layout";
 import { FooterText } from "../../styles/styles.text";
+import { VscUnmute } from "react-icons/vsc";
+import { AudioIcon } from "./RandomWordsStyles";
+import { RowFlex } from "../../display/flex";
+
 
 const RandomWords = ({type,words}) => {
     const[stop,setStop]=React.useState(-1); //stop=-1 it means that the lesson has not started, when stop=10 => the end of the lesson
@@ -38,12 +42,15 @@ const RandomWords = ({type,words}) => {
         var finded=wantedPartOfSpeech(result);
       }while(finded < 0)
       setWord(result[objectIndex]);   
+      console.log(word)
+
         // verify if the word is already added to favorite list 
           const isWordInLocalStorage = JSON.parse(localStorage.getItem(`favorite${type}`));
             let favoriteItemIndex=isWordInLocalStorage.findIndex( //will find just the first element that has the same name as the other word
               (favoriteWord)=>favoriteWord.word===result[objectIndex].word)
             return favoriteItemIndex >-1 ? 
             setIsFavorite(true) : setIsFavorite(false) //if the world is already in favorite list, i will sidplay a red heart
+
     }
   
     function wantedPartOfSpeech(word){   
@@ -89,11 +96,32 @@ const RandomWords = ({type,words}) => {
       else if(favoriteItemIndex >=0){
         const newArray=existingFavoritesWords.filter(wordData =>
           wordData.word !== word.word );
-          console.log(existingFavoritesWords)
           localStorage.setItem(`favorite${type}`,JSON.stringify(newArray))
 
         }
-      console.log(JSON.parse(localStorage.getItem(`favorite${type}`)))
+    }
+
+    function AudioPlayer(){
+      const audio=word.phonetics.map(audio =>{
+        return audio.audio &&  //if audio path is empty, don't show the object
+          <VscUnmute 
+              key={audio.audio}
+              onClick={()=>handleClick(audio.audio)}
+              style={{marginLeft:'5px'}}
+          />
+      }
+      )
+      const handleClick=(sourceAudio)=>{
+        const audio =new Audio(sourceAudio)
+        audio.play();
+      }
+      return (
+        <div>
+          <AudioIcon >
+            {audio}
+          </AudioIcon>
+        </div>
+      )
     }
 
     return (
@@ -122,8 +150,11 @@ const RandomWords = ({type,words}) => {
                       {isShown &&
                       <TextContainer textSize={0.8}>
                         <FitContentContainer>
-                            <b>phonetic:</b> {word.phonetic}<br/>
-                            <b>meanings:</b> {renderDefinitions()}
+                          <RowFlex>
+                            <b>phonetic:</b> {word.phonetic}
+                            <AudioPlayer />
+                            </RowFlex>
+                          <b>meanings:</b> {renderDefinitions()}
                         </FitContentContainer>
                       </TextContainer>
                       }

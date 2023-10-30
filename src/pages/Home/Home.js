@@ -66,7 +66,6 @@ const Home = () => {
         setIsDown(true);
         setStartX(e.pageX-containerRef.current.offsetLeft);
         setScrollLeft(containerRef.current.scrollLeft);
-        console.log(scrollLeft)
     }
     const handleMouseLeave=()=>{
         setIsDown(false);

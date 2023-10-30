@@ -6,3 +6,7 @@ export const ReactIcon=styled.span`
     jusify-content:center;
     align-items:center;
 `
+export const AudioIcon=styled.i`
+    cursor:pointer;
+    margin-left:10px;
+`

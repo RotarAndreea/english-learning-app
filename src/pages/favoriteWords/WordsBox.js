@@ -1,8 +1,7 @@
 import React from 'react'
 import { ColumnFlex} from '../../components/display/flex'
 import { TrashIcon } from '../../components/elements/images'
-import {HalfButton } from '../../components/styles/styled.button'
-import { FooterContainer, SelectedContainer, WordsContainer } from '../../components/styles/styled.container'
+import { SelectedContainer, WordsContainer } from '../../components/styles/styled.container'
 import { HeaderText } from '../../components/styles/styles.text'
 import Trash from '../../media/images/trash.png'
 
@@ -35,11 +34,12 @@ const WordsBox = ({title, category,background}) => {
         <ColumnFlex>   
           {word}
         </ColumnFlex>
-        <FooterContainer>
-            <HalfButton >Cancel</HalfButton>
-            <HalfButton >Save Changes</HalfButton>
-        </FooterContainer>
-        
+        {/*
+          <FooterContainer>
+              <HalfButton >Cancel</HalfButton>
+              <HalfButton >Save Changes</HalfButton>
+          </FooterContainer>
+      */}
     </WordsContainer>
   )
 }
