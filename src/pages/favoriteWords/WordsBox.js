@@ -7,41 +7,24 @@ import { HeaderText } from '../../components/styles/styles.text'
 import Trash from '../../media/images/trash.png'
 
 const WordsBox = ({title, category,background}) => {
-    const words=JSON.parse(localStorage.getItem(`${category}`)) || []
-    const [deleteWords,setDeleteWords]=React.useState(() => JSON.parse(localStorage.getItem(`${category}`)) || [])
-    const [favoriteWords, setFavoriteWords]=React.useState(words.filter(word => word.isFavorite === true))
+    const words=JSON.parse(localStorage.getItem(`favorite${category}`)) || []
+    const [favoriteWords, setFavoriteWords]=React.useState([...words])
     const word=favoriteWords.map(word =>(
       <Word
-        key={word.id}
-        id={word.id}
-        word={word.value}
-        isFavorite={word.isFavorite}
-        deleteFromFavorite={deleteFromFavorite}
+        key={word.word}
+        word={word.word}
+        deleteFromFavorite={()=>deleteFromFavorite(word.word)}
       />
     ) )
 
-    function deleteFromFavorite(wordId){ 
-      setFavoriteWords(prevValue=>prevValue.map(wordData =>{
-        return wordData.id === wordId ?
-        {
-          ...wordData,
-          isFavorite:false
-        }
-        : {...wordData  }}))
-      setDeleteWords(prevValue=>prevValue.map(wordData =>{
-        return wordData.id === wordId ?
-        {
-          ...wordData,
-          isFavorite: false
-        }
-        : {...wordData  }}))
+    function deleteFromFavorite(word){ 
+      setFavoriteWords(prevValue=>prevValue.filter(wordData =>
+         wordData.word !== word ))
+        const arrayAfterDeleting=favoriteWords.filter(wordData =>
+          wordData.word !== word );
+      localStorage.setItem(`favorite${category}`,JSON.stringify(arrayAfterDeleting))   
     }
 
-    function saveOptions(words){
-      localStorage.setItem(`${category}`, JSON.stringify(words))
-      window.location.reload(false);
-    }
-   
   return (
     <WordsContainer align={'center'} background={background}>
         <ColumnFlex>
@@ -53,8 +36,8 @@ const WordsBox = ({title, category,background}) => {
           {word}
         </ColumnFlex>
         <FooterContainer>
-            <HalfButton onClick={()=>saveOptions(words)}>Cancel</HalfButton>
-            <HalfButton onClick={()=>saveOptions(deleteWords)}>Save Changes</HalfButton>
+            <HalfButton >Cancel</HalfButton>
+            <HalfButton >Save Changes</HalfButton>
         </FooterContainer>
         
     </WordsContainer>
@@ -64,9 +47,9 @@ export default WordsBox
 
 const Word = (props) => {
   return (
-      <SelectedContainer background={props.isFavorite ? '' : 'red'}>
+      <SelectedContainer >
           {props.word}
-          <TrashIcon src={Trash} onClick={() => props.deleteFromFavorite(props.id)} />
+          <TrashIcon src={Trash} onClick={() => props.deleteFromFavorite(props.word)} />
       </SelectedContainer> 
   )
 }

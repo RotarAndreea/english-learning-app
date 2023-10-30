@@ -13,6 +13,7 @@ const RandomWords = ({type,words}) => {
     const[stop,setStop]=React.useState(-1); //stop=-1 it means that the lesson has not started, when stop=10 => the end of the lesson
     const [isShown, setIsShown]=React.useState(false);
     const [word,setWord]= useState('');
+    const [isFavorite,setIsFavorite]=useState(false);
     const [meaningIndex,setMeaningIndex]= useState(-1);
     var objectIndex=-1;
   
@@ -35,13 +36,20 @@ const RandomWords = ({type,words}) => {
             console.error(error);
         }
         var finded=wantedPartOfSpeech(result);
-      }while(finded === false)
-      setWord(result[objectIndex]);
+      }while(finded < 0)
+      setWord(result[objectIndex]);   
+        // verify if the word is already added to favorite list 
+          const isWordInLocalStorage = JSON.parse(localStorage.getItem(`favorite${type}`));
+            let favoriteItemIndex=isWordInLocalStorage.findIndex( //will find just the first element that has the same name as the other word
+              (favoriteWord)=>favoriteWord.word===result[objectIndex].word)
+            return favoriteItemIndex >-1 ? 
+            setIsFavorite(true) : setIsFavorite(false) //if the world is already in favorite list, i will sidplay a red heart
     }
   
-    function wantedPartOfSpeech(word){    
-     word.some((obj,i)=>{
-      const foundMeaningIndex=obj.meanings.findIndex(meaning=>
+    function wantedPartOfSpeech(word){   
+      let foundMeaningIndex=false; 
+      word.some((obj,i)=>{
+        foundMeaningIndex=obj.meanings.findIndex(meaning=>
         meaning.partOfSpeech===`${type}`);
         if(foundMeaningIndex !==-1){
           objectIndex=i;
@@ -50,6 +58,7 @@ const RandomWords = ({type,words}) => {
         }
         return false;
      })
+     return foundMeaningIndex;
     }
   
     function change(){
@@ -65,6 +74,28 @@ const RandomWords = ({type,words}) => {
         </div>
       ))
     }
+
+    const addToFavorite=()=>{  
+      setIsFavorite(prevValue=>!prevValue)  
+      !localStorage.getItem(`favorite${type}`) &&
+      localStorage.setItem(`favorite${type}`,JSON.stringify([]))
+      const existingFavoritesWords=JSON.parse(localStorage.getItem(`favorite${type}`));
+      let favoriteItemIndex=existingFavoritesWords.findIndex( //will find just the first element that has the same name as the other word
+          (favoriteWord)=>favoriteWord.word===word.word)
+      if(favoriteItemIndex<0){
+        existingFavoritesWords.push(word);
+        localStorage.setItem(`favorite${type}`,JSON.stringify(existingFavoritesWords))
+      }
+      else if(favoriteItemIndex >=0){
+        const newArray=existingFavoritesWords.filter(wordData =>
+          wordData.word !== word.word );
+          console.log(existingFavoritesWords)
+          localStorage.setItem(`favorite${type}`,JSON.stringify(newArray))
+
+        }
+      console.log(JSON.parse(localStorage.getItem(`favorite${type}`)))
+    }
+
     return (
       <>
           <GlobalStyles />
@@ -84,8 +115,8 @@ const RandomWords = ({type,words}) => {
                                   </CenterContainer>
                                 </UpperContainer>
                                 <FooterTextContainer>
-                                    <FooterText onClick={showTranslate}>{isShown ? 'Hide the translate' : 'Show the translate'} </FooterText>
-                                    <Favorite  />
+                                    <FooterText onClick={showTranslate}>{isShown ? 'Hide informations' : 'Show more'} </FooterText>
+                                    <Favorite  addToFavorite={addToFavorite} isFavorite={isFavorite}/>
                                 </FooterTextContainer>
                       </TextContainer>
                       {isShown &&

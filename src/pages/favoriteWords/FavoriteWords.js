@@ -14,9 +14,9 @@ const FavoriteWords = () => {
        </Header>
        <PrincipalLayout>
         <RespContainer >
-            <WordsBox title={'Saved Nouns'} category={'nouns'} background={'#d7d742'}/>
-            <WordsBox title={'Saved Expressions'} background={'#dbba57'}/>
-            <WordsBox title={'Saved Verbs'} background={'#db9957'}/>
+            <WordsBox title={'Saved Nouns'} category={'noun'} background={'#d7d742'}/>
+            <WordsBox title={'Saved Verbs'} category={'verb'} background={'#dbba57'}/>
+            <WordsBox title={'Saved Adjectives'} category={'adjective'} background={'#db9957'}/>
 
         </RespContainer>
        </PrincipalLayout>
