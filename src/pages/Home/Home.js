@@ -129,7 +129,7 @@ const Home = () => {
                 
             
             <FooterButtonsContainer>
-                <FooterIcon src={WrongAnswer} />
+                <FooterIcon src={WrongAnswer} onClick={() => navigateToAnotherPage("/SearchWords")}/>
                 <FooterIcon src={SavedWords} onClick={() => navigateToAnotherPage("/FavoriteItems")}/>
                 <FooterIcon src={Calendar}/>
             </FooterButtonsContainer>

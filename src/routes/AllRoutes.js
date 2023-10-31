@@ -7,6 +7,7 @@ import PersonalProgress from '../pages/PersonalProgress'
 import NewExpressions from '../pages/newExpressions/NewExpressions'
 import FavoriteWords from '../pages/favoriteWords/FavoriteWords'
 import NewAdjectives from '../pages/newAdjectives/newAdjectives'
+import SearchWords from '../pages/searchWords/SearchWords'
 
 const AllRoutes = () => {
 
@@ -20,6 +21,7 @@ const AllRoutes = () => {
           <Route path="/LearnNewVerbs" element={<NewVerbs/>}/>
           <Route path="/LearnNewAdjectives" element={<NewAdjectives/>}/>
           <Route path="/FavoriteItems" element={<FavoriteWords/>}/>
+          <Route path="/SearchWords" element={<SearchWords/>}/>
       </Routes>
     </Router>
   
