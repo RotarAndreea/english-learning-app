@@ -44,3 +44,6 @@ export const WordContainer=styled.div`
 export const DefinitionsContainer=styled.div`
     margin:0 10px;
 `
+export const HorisontalAlign=styled.div`
+    margin:0 auto;
+`

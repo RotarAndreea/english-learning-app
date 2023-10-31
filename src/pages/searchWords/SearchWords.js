@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { GlobalStyles } from '../../components/globalStyles'
 import { Header } from '../../layouts/Header'
 import CloseButton from '../../components/Buttons/CloseButton'
-import { DefinitionsContainer, FullHeightLayout, SearchBar, SearchBarButton, SearchBarContainer, WordContainer} from './searchWordsStyles'
+import { DefinitionsContainer, FullHeightLayout, HorisontalAlign, SearchBar, SearchBarButton, SearchBarContainer, WordContainer} from './searchWordsStyles'
 import { CenterContainer } from '../../components/Containers/container'
 import { VscSearch } from "react-icons/vsc";
 import { VscUnmute } from "react-icons/vsc";
@@ -12,7 +12,7 @@ const SearchWords = () => {
     const [searchedWord, setSearchedWord]=useState('');
     const [showWordInfo, setShowWordInfo]=useState(false);
     const [displayWords, setDisplayWords]=useState('');
-    const [matchedWord, setMatchedWord]=useState('');
+    const [matchedWord, setMatchedWord]=useState('Please enter a word and press search');
 
     function handleChange(event){
             setSearchedWord(event.target.value)
@@ -23,8 +23,15 @@ const SearchWords = () => {
           try {
               const response = await fetch(url);
               var result = await response.json();
-              
-          } catch (error) {
+              if(result.title ==='No Definitions Found'){
+                    setShowWordInfo(false);
+                    setTimeout(() => {
+                        setMatchedWord('Please enter a word and press search')
+                    }, 2500);
+                    setMatchedWord('Please choose another word!')
+                return
+              }
+          }catch (error) {
               console.error(error);
           }
         console.log(result);
@@ -97,6 +104,7 @@ const SearchWords = () => {
                 </CenterContainer>
         </Header>
         {showWordInfo && displayWords}
+        {!showWordInfo && <HorisontalAlign style={{color: matchedWord==='Please choose another word!' && 'red'}}>{matchedWord}</HorisontalAlign>}
        </FullHeightLayout>
         
     </>
