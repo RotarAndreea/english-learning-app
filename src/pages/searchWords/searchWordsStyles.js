@@ -2,9 +2,13 @@ import styled from "styled-components";
 import { PrincipalLayout } from "../../components/styles/styled.layout";
 
 export const FullHeightLayout=styled(PrincipalLayout)`
-    min-height: 100vh;
-    padding:0;
+    min-height:100vh;
     margin:0;
+    padding:0;
+
+`
+export const AdjustedHeightLayout=styled(PrincipalLayout)`
+    min-height:calc(100%-30px);
 
 `
 export const SearchBarContainer=styled.div`

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { GlobalStyles } from '../../components/globalStyles'
 import { Header } from '../../layouts/Header'
 import CloseButton from '../../components/Buttons/CloseButton'
-import { DefinitionsContainer, FullHeightLayout, HorisontalAlign, SearchBar, SearchBarButton, SearchBarContainer, WordContainer} from './searchWordsStyles'
+import { AdjustedHeightLayout, DefinitionsContainer, FullHeightLayout, HorisontalAlign, SearchBar, SearchBarButton, SearchBarContainer, WordContainer} from './searchWordsStyles'
 import { CenterContainer } from '../../components/Containers/container'
 import { VscSearch } from "react-icons/vsc";
 import { VscUnmute } from "react-icons/vsc";
@@ -103,8 +103,11 @@ const SearchWords = () => {
                     {showWordInfo && AudioPlayer()}
                 </CenterContainer>
         </Header>
-        {showWordInfo && displayWords}
-        {!showWordInfo && <HorisontalAlign style={{color: matchedWord==='Please choose another word!' && 'red'}}>{matchedWord}</HorisontalAlign>}
+        <AdjustedHeightLayout>
+          {showWordInfo && displayWords}
+          {!showWordInfo && <HorisontalAlign style={{color: matchedWord==='Please choose another word!' && 'red'}}>{matchedWord}</HorisontalAlign>}
+        </AdjustedHeightLayout>
+     
        </FullHeightLayout>
         
     </>
