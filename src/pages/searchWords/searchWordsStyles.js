@@ -9,7 +9,6 @@ export const FullHeightLayout=styled(PrincipalLayout)`
 `
 export const AdjustedHeightLayout=styled(PrincipalLayout)`
     min-height:calc(100%-30px);
-
 `
 export const SearchBarContainer=styled.div`
     width:60%;
